@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    <script src="app.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="https://placekitten.com/230/150" alt="header-img" class="logo">
+    </header>
+    <main id="app">
+        <form class="form" v-if="formVisible" @submit.prevent="createURL()">
+            <div v-if="error" class="error">
+                {{error}}
+            </div>
+            <input type="text" name="url" id="url" class="input" v-model="url" placeholder="enter a url">
+            <input type="text" name="slug" id="slug" v-model="slug" placeholder="enter a slug" class="input">
+            <button type="submit" class="create">create</button>
+        </form>
+        <div v-if="created">
+            <p class="created">Your short url is : <a :href="created">{{created}}</a></p>
+        </div>
+    </main>
+    <!--script src="https://unpkg.com/vue@3/dist/vue.global.js"></script-->
+
+</body>
+</html>
